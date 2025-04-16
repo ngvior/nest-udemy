@@ -1,6 +1,6 @@
 const Deprecated = (deprecationReason: string) => {
   return (
-    target: any,
+    _target: any,
     memberName: string,
     propertyDescriptor: PropertyDescriptor
   ) => {
