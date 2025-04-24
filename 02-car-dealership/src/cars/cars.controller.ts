@@ -27,7 +27,7 @@ export class CarsController {
     return this.carsService.findOneById(id);
   }
 
-  @Post('create')
+  @Post()
   /*
    * // @UsePipes(ValidationPipe)
    * can be used here OR in the method decorator OR (better) globally to mantain DRY principle
