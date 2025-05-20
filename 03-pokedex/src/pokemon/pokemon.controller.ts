@@ -6,7 +6,9 @@ import {
   Param,
   Patch,
   Post,
+  Query,
 } from '@nestjs/common';
+import { PaginationDto } from 'src/common/dto/pagination.dto';
 import { ParseMongoIdPipe } from 'src/common/pipes/parse-mongo-id/parse-mongo-id.pipe';
 import { CreatePokemonDto } from './dto/create-pokemon.dto';
 import { UpdatePokemonDto } from './dto/update-pokemon.dto';
@@ -22,8 +24,14 @@ export class PokemonController {
   }
 
   @Get()
-  findAll() {
-    return this.pokemonService.findAll();
+  findAll(
+    // @Query('sort') sort: 'asc' | 'desc' = 'desc',
+    // @Query('limit', new DefaultValuePipe(20), ParseIntPipe) limit: number,
+    // @Query('offset', new DefaultValuePipe(0), ParseIntPipe) offset: number,
+    @Query() paginationDto: PaginationDto,
+  ) {
+    // const { offset, limit } = paginationDto;
+    return this.pokemonService.findAll(paginationDto/* offset, limit */);
   }
 
   @Get(':term')
