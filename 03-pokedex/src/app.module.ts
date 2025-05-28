@@ -29,6 +29,4 @@ import { EnvConfiguration } from './config/app.config';
     SeedModule,
   ],
 })
-export class AppModule {
-  // constructor(private readonly configService: ConfigService) {}
-}
+export class AppModule {}
